@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,15 +34,35 @@
     margin-bottom: 10px;
 }
 
+.date-container {
+    text-align: center; /* 使容器内的内容居中 */
+    margin-top: 20px; /* 可选：添加顶部外边距 */
+    margin-bottom: 20px; /* 可选：添加底部外边距 */
+}
 
+.date-label {
+    display: inline-block; /* 使文本和日期框在同一行 */
+    margin-right: 10px; /* 可选：添加文本和日期框之间的间距 */
+}
 
+#dateInput {
+    display: inline-block; /* 确保日期框在同一行 */
+    vertical-align: middle; /* 垂直居中对齐 */
+}
+
+.title-center {
+    text-align: center; /* 使标题居中 */
+}
 
 
 </style>
 <body class="p-4">
-    <h1 class="text-2xl font-bold">酸再生日常数据收集</h1>
+    <h1 class="text-2xl font-bold title-center">酸再生日常数据收集</h1>
     <form id="quizForm">
-
+        <div class="date-container">
+            <span class="date-label">选择时间：</span>
+            <input type="date" id="dateInput" name="dateInput">
+        </div>
         <label for="fruits">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;区域：</label>
 
             <select class="custom-select" id="quyu" name="区域">
@@ -52,8 +72,8 @@
                 <option value="高强酸再生">高强酸再生</option>
             </select>
 
-            <input type="date" id="dateInput" name="dateInput">
-        <!-- <a href="https://www.example.com">这是一个链接</a> -->
+           
+        
         <label for="fruits">&nbsp;&nbsp;&nbsp;班次：</label>
         <select id="banci" name="班次">
             <option value="白班">白班</option>
