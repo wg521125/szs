@@ -95,77 +95,97 @@
         /* 鼠标悬停时显示小手 */
         /* ... 其他样式保持不变 ... */
     }
+    .center-container {
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            /* align-items: center; 垂直居中（如果需要的话） */
+            /* 如果你希望容器有一个固定的高度，并垂直居中内容，可以取消注释以下行 */
+            /* height: 100vh; */
+            /* 其他的样式，如padding、border等，可以根据需要添加 */
+        }
 </style>
 
 <body class="p-4">
     <h1 class="text-2xl font-bold title-center">酸再生日常数据收集</h1>
-    <form id="quizForm">
-        <div class="date-container">
-            <span class="date-label">选择日期：</span>
-            <input type="date" id="dateInput" name="日期">
-        </div>
-        <label for="fruits">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;区域：</label>
+    <div class="center-container">
 
-        <select class="custom-select" id="quyu" name="区域">
-            <option value="1700酸再生">1700酸再生</option>
-            <option value="2230酸再生">2230酸再生</option>
-            <option value="2230酸再生">2230酸再生</option>
-            <option value="高强酸再生">高强酸再生</option>
-        </select>
+        
+        
+        <form id="quizForm">
+            <div class="date-container">
+                <span class="date-label">选择日期：</span>
+                <input type="date" id="dateInput" name="日期">
+            </div>
+            <label for="fruits">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;区域：</label>
+    
+            <select class="custom-select" id="quyu" name="区域">
+                <option value="1700酸再生">1700酸再生</option>
+                <option value="2230酸再生">2230酸再生</option>
+                <option value="2230酸再生">2230酸再生</option>
+                <option value="高强酸再生">高强酸再生</option>
+            </select>
+    
+    
+    
+            <label for="fruits">&nbsp;&nbsp;&nbsp;班次：</label>
+            <select id="banci" name="班次">
+                <option value="白班">白班</option>
+                <option value="夜班">夜班</option>
+            </select>
+    
+            <div class="mt-1">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 卸碎边：<input type="text" id="myInput" name="卸碎边"
+                    class="p-2 border rounded mr-1">车 &nbsp; &nbsp;碎边添加：<input type="text" id="myInput" name="碎边添加"
+                    class="p-2 border rounded mr-2">车
+            </div>
+            <div class="mt-1">
+                &nbsp; &nbsp;场地能放：<input type="text" id="myInput" name="场地能放" class="p-2 border rounded mr-2">车
+            </div>
+            <div class="mt-1">
+                &nbsp; &nbsp; &nbsp;&nbsp;铁粉装：<input type="text" id="myInput" name="铁粉装" class="p-2 border rounded mr-2">袋
+                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;吸排车：<input type="text" id="myInput" name="吸排车"
+                    class="p-2 border rounded mr-2">吨
+            </div>
+            <div class="mt-1">
+                &nbsp;&nbsp;&nbsp;铁粉外运：<input type="text" id="myInput" name="铁粉外运" class="p-2 border rounded mr-1">袋 &nbsp;
+                &nbsp;外运铁粉：<input type="text" id="myInput" name="外运吨数" class="p-2 border rounded mr-2">吨
+            </div>
+            <div class="mt-1">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 除泥：<input type="text" id="myInput" name="除泥"
+                    class="p-2 border rounded mr-1">次 &nbsp; &nbsp;外运污泥：<input type="text" id="myInput" name="外运污泥"
+                    class="p-2 border rounded mr-2">吨
+            </div>
+            <div class="mt-1">
+                絮凝剂消耗：<input type="text" id="myInput" name="絮凝剂消耗" class="p-2 border rounded mr-1">公斤
+            </div>
+    
+    
+            <label for="fruits">压滤机状态：</label>
+            <select class="custom-select" id="ylj" name="压滤机状态">
+    
+                <option value="未启">未启</option>
+                <option value="进泥中">进泥中</option>
+                <option value="反吹中">反吹中</option>
+                <option value="待除泥">待除泥</option>
+            </select>
+    
+    
+    
+    
+        </form>
+
+        
+           
+        
+        
+    
 
 
-
-        <label for="fruits">&nbsp;&nbsp;&nbsp;班次：</label>
-        <select id="banci" name="班次">
-            <option value="白班">白班</option>
-            <option value="夜班">夜班</option>
-        </select>
-
-        <div class="mt-1">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 卸碎边：<input type="text" id="myInput" name="卸碎边"
-                class="p-2 border rounded mr-1">车 &nbsp; &nbsp;碎边添加：<input type="text" id="myInput" name="碎边添加"
-                class="p-2 border rounded mr-2">车
-        </div>
-        <div class="mt-1">
-            &nbsp; &nbsp;场地能放：<input type="text" id="myInput" name="场地能放" class="p-2 border rounded mr-2">车
-        </div>
-        <div class="mt-1">
-            &nbsp; &nbsp; &nbsp;&nbsp;铁粉装：<input type="text" id="myInput" name="铁粉装" class="p-2 border rounded mr-2">袋
-            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;吸排车：<input type="text" id="myInput" name="吸排车"
-                class="p-2 border rounded mr-2">吨
-        </div>
-        <div class="mt-1">
-            &nbsp;&nbsp;&nbsp;铁粉外运：<input type="text" id="myInput" name="铁粉外运" class="p-2 border rounded mr-1">袋 &nbsp;
-            &nbsp;外运铁粉：<input type="text" id="myInput" name="外运吨数" class="p-2 border rounded mr-2">吨
-        </div>
-        <div class="mt-1">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 除泥：<input type="text" id="myInput" name="除泥"
-                class="p-2 border rounded mr-1">次 &nbsp; &nbsp;外运污泥：<input type="text" id="myInput" name="外运污泥"
-                class="p-2 border rounded mr-2">吨
-        </div>
-        <div class="mt-1">
-            絮凝剂消耗：<input type="text" id="myInput" name="絮凝剂消耗" class="p-2 border rounded mr-1">公斤
-        </div>
-
-
-        <label for="fruits">压滤机状态：</label>
-        <select class="custom-select" id="ylj" name="压滤机状态">
-
-            <option value="未启">未启</option>
-            <option value="进泥中">进泥中</option>
-            <option value="反吹中">反吹中</option>
-            <option value="待除泥">待除泥</option>
-        </select>
-
-
-
-
-    </form>
+    </div>
     <button id="copyBtn" class="btn-copy">一键生成复制到剪贴板</button>
-
     <script>
-
-
+    
+    
         document.getElementById('copyBtn').addEventListener('click', function () {
             const form = document.getElementById('quizForm');
             let output = '';
