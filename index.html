@@ -66,22 +66,6 @@
     <button id="copyBtn" class="bg-blue-500 text-white px-4 py-2 rounded mt-1 cursor-pointer">一键复制</button>
 
     <script>
-        function copyToClipboardMobile(text) {
-    try {
-        // 使用 prompt 来间接让用户复制文本
-        // 将文本设置为 prompt 的默认值，这样用户只需点击确定即可复制
-        prompt('请复制以下文本：', text);
-
-        // 注意：这里并没有真正地将文本复制到剪贴板，而是显示了文本供用户手动复制
-        alert('文本已显示在提示框中，请手动复制。');
-    } catch (err) {
-        // 处理可能出现的错误（尽管 prompt 通常不会抛出错误）
-        console.error('复制到剪贴板失败:', err);
-    }
-}
-
-// 使用示例
-var textToCopy = "这是一段需要复制的文本，包含三个汉字";
 
 
         document.getElementById('copyBtn').addEventListener('click', function() {
@@ -114,7 +98,7 @@ var textToCopy = "这是一段需要复制的文本，包含三个汉字";
                 }
             }
             console.log(output)
-            copyToClipboardMobile(textToCopy);
+
             navigator.clipboard.writeText(output).then(() => {
                 alert('答案已复制到剪贴板！');
             }).catch(err => {
