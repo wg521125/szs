@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,120 +8,149 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <script>
-    window.onload = function() {
+    window.onload = function () {
         var today = new Date();
 
-    if (today.getHours() < 8) {
-        // 如果是，则显示昨天的日期
-        today.setDate(today.getDate() - 1);
-    }
+        if (today.getHours() < 8) {
+            // 如果是，则显示昨天的日期
+            today.setDate(today.getDate() - 1);
+        }
         var year = today.getFullYear();
         var month = ('0' + (today.getMonth() + 1)).slice(-2); // 注意月份是从0开始的，所以要+1
         var day = ('0' + today.getDate()).slice(-2); // 确保日期是两位数
         var defaultDate = year + '-' + month + '-' + day;
         document.getElementById('dateInput').value = defaultDate;
     }
-    </script>
+</script>
 <style>
     /* 设置id为'myInput'的input元素的宽度为200px */
     #myInput {
-        width: 50px; /* 可以根据需要调整这个值 */
-        padding: 5px; /* 添加一些内边距，使文本更易读 */
+        width: 50px;
+        /* 可以根据需要调整这个值 */
+        padding: 5px;
+        /* 添加一些内边距，使文本更易读 */
     }
-/* 下拉框样式 */
-.custom-select {
 
-    margin-top: 10px; /* 上方距离，即与上方标签的间隔 */
-    margin-bottom: 10px;
-}
+    /* 下拉框样式 */
+    .custom-select {
 
-.date-container {
-    text-align: center; /* 使容器内的内容居中 */
-    margin-top: 20px; /* 可选：添加顶部外边距 */
-    margin-bottom: 20px; /* 可选：添加底部外边距 */
-}
+        margin-top: 10px;
+        /* 上方距离，即与上方标签的间隔 */
+        margin-bottom: 10px;
+    }
 
-.date-label {
-    display: inline-block; /* 使文本和日期框在同一行 */
-    margin-right: 10px; /* 可选：添加文本和日期框之间的间距 */
-}
+    .date-container {
+        text-align: center;
+        /* 使容器内的内容居中 */
+        margin-top: 20px;
+        /* 可选：添加顶部外边距 */
+        margin-bottom: 20px;
+        /* 可选：添加底部外边距 */
+    }
 
-#dateInput {
-    display: inline-block; /* 确保日期框在同一行 */
-    vertical-align: middle; /* 垂直居中对齐 */
-}
+    .date-label {
+        display: inline-block;
+        /* 使文本和日期框在同一行 */
+        margin-right: 10px;
+        /* 可选：添加文本和日期框之间的间距 */
+    }
 
-.title-center {
-    text-align: center; /* 使标题居中 */
-}
+    #dateInput {
+        display: inline-block;
+        /* 确保日期框在同一行 */
+        vertical-align: middle;
+        /* 垂直居中对齐 */
+    }
 
-.btn-container {
-            text-align: center; /* 文本居中，用于内联元素或行内块元素 */
-            margin-top: 20px; /* 可选：添加一些上边距 */
-        }
+    .title-center {
+        text-align: center;
+        /* 使标题居中 */
+    }
+
+    .btn-container {
+        text-align: center;
+        /* 文本居中，用于内联元素或行内块元素 */
+        margin-top: 20px;
+        /* 可选：添加一些上边距 */
+    }
 
 
-/* 假设按钮的样式如下 */
-.btn-copy {
-    display: block; /* 使按钮成为块级元素 */
-    width: auto; /* 设置按钮宽度，这里仅为示例 */
-    margin: 20px auto; /* 上下外边距和左右自动外边距实现居中 */
-    padding: 10px; /* 按钮内边距 */
-    background-color: #007BFF; /* 蓝色背景 */
-    color: #fff; /* 白色文本 */
-    border-radius: 5px; /* 圆角 */
-    cursor: pointer; /* 鼠标悬停时显示小手 */
-    /* ... 其他样式保持不变 ... */
-}
-
+    /* 假设按钮的样式如下 */
+    .btn-copy {
+        display: block;
+        /* 使按钮成为块级元素 */
+        width: auto;
+        /* 设置按钮宽度，这里仅为示例 */
+        margin: 20px auto;
+        /* 上下外边距和左右自动外边距实现居中 */
+        padding: 10px;
+        /* 按钮内边距 */
+        background-color: #007BFF;
+        /* 蓝色背景 */
+        color: #fff;
+        /* 白色文本 */
+        border-radius: 5px;
+        /* 圆角 */
+        cursor: pointer;
+        /* 鼠标悬停时显示小手 */
+        /* ... 其他样式保持不变 ... */
+    }
 </style>
+
 <body class="p-4">
     <h1 class="text-2xl font-bold title-center">酸再生日常数据收集</h1>
     <form id="quizForm">
         <div class="date-container">
-            <span class="date-label">选择时间：</span>
-            <input type="date" id="dateInput" name="dateInput">
+            <span class="date-label">选择日期：</span>
+            <input type="date" id="dateInput" name="日期">
         </div>
         <label for="fruits">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;区域：</label>
 
-            <select class="custom-select" id="quyu" name="区域">
-                <option value="1700酸再生">1700酸再生</option>
-                <option value="2230酸再生">2230酸再生</option>
-                <option value="2230酸再生">2230酸再生</option>
-                <option value="高强酸再生">高强酸再生</option>
-            </select>
+        <select class="custom-select" id="quyu" name="区域">
+            <option value="1700酸再生">1700酸再生</option>
+            <option value="2230酸再生">2230酸再生</option>
+            <option value="2230酸再生">2230酸再生</option>
+            <option value="高强酸再生">高强酸再生</option>
+        </select>
 
-           
-        
+
+
         <label for="fruits">&nbsp;&nbsp;&nbsp;班次：</label>
         <select id="banci" name="班次">
             <option value="白班">白班</option>
             <option value="夜班">夜班</option>
         </select>
-    
+
         <div class="mt-1">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 卸碎边：<input type="text" id="myInput" name="卸碎边" class="p-2 border rounded mr-1">车   &nbsp; &nbsp;碎边添加：<input type="text" id="myInput" name="碎边添加" class="p-2 border rounded mr-2">车
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 卸碎边：<input type="text" id="myInput" name="卸碎边"
+                class="p-2 border rounded mr-1">车 &nbsp; &nbsp;碎边添加：<input type="text" id="myInput" name="碎边添加"
+                class="p-2 border rounded mr-2">车
         </div>
-        <div class="mt-1" >
+        <div class="mt-1">
             &nbsp; &nbsp;场地能放：<input type="text" id="myInput" name="场地能放" class="p-2 border rounded mr-2">车
         </div>
-        <div class="mt-1" >
-            &nbsp;  &nbsp; &nbsp;&nbsp;铁粉装：<input type="text" id="myInput" name="铁粉装" class="p-2 border rounded mr-2">袋  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;吸排车：<input type="text" id="myInput" name="吸排车" class="p-2 border rounded mr-2">吨
+        <div class="mt-1">
+            &nbsp; &nbsp; &nbsp;&nbsp;铁粉装：<input type="text" id="myInput" name="铁粉装" class="p-2 border rounded mr-2">袋
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;吸排车：<input type="text" id="myInput" name="吸排车"
+                class="p-2 border rounded mr-2">吨
         </div>
-        <div class="mt-1" >
-            &nbsp;&nbsp;&nbsp;铁粉外运：<input type="text" id="myInput" name="铁粉外运" class="p-2 border rounded mr-1">袋  &nbsp; &nbsp;外运铁粉：<input type="text" id="myInput" name="外运吨数" class="p-2 border rounded mr-2">吨
+        <div class="mt-1">
+            &nbsp;&nbsp;&nbsp;铁粉外运：<input type="text" id="myInput" name="铁粉外运" class="p-2 border rounded mr-1">袋 &nbsp;
+            &nbsp;外运铁粉：<input type="text" id="myInput" name="外运吨数" class="p-2 border rounded mr-2">吨
         </div>
-        <div class="mt-1" >
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 除泥：<input type="text" id="myInput" name="除泥" class="p-2 border rounded mr-1">次  &nbsp; &nbsp;外运污泥：<input type="text" id="myInput" name="外运污泥" class="p-2 border rounded mr-2">吨
+        <div class="mt-1">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 除泥：<input type="text" id="myInput" name="除泥"
+                class="p-2 border rounded mr-1">次 &nbsp; &nbsp;外运污泥：<input type="text" id="myInput" name="外运污泥"
+                class="p-2 border rounded mr-2">吨
         </div>
-        <div class="mt-1" >
+        <div class="mt-1">
             絮凝剂消耗：<input type="text" id="myInput" name="絮凝剂消耗" class="p-2 border rounded mr-1">公斤
         </div>
-        
+
 
         <label for="fruits">压滤机状态：</label>
         <select class="custom-select" id="ylj" name="压滤机状态">
-            
+
             <option value="未启">未启</option>
             <option value="进泥中">进泥中</option>
             <option value="反吹中">反吹中</option>
@@ -136,33 +166,37 @@
     <script>
 
 
-        document.getElementById('copyBtn').addEventListener('click', function() {
+        document.getElementById('copyBtn').addEventListener('click', function () {
             const form = document.getElementById('quizForm');
             let output = '';
             for (let i = 0; i < form.elements.length; i++) {
                 var text = form.elements[i].name
-                var int= (5-text.length)*3
+                var int = (5 - text.length) * 3
                 // if(int>0){
                 //     int=int+(4-text.length)*2
                 // }
                 // int=0;
-                
+
                 for (let index = 0; index < int; index++) {
-                    text=' '+text
+                    text = ' ' + text
                 }
-                    console.log(text)
-                    console.log(text.length)
-                if (form.elements[i].type === 'radio'  ) {
-                    output += text+`：${form.elements[i].value}\n`;
-                } else if (form.elements[i].type === 'text' ) {
+                console.log(text)
+                console.log(text.length)
+                if (form.elements[i].type === 'radio') {
+                    output += text + `：${form.elements[i].value}\n`;
+                } else if (form.elements[i].type === 'text') {
                     // 假设这里的text输入框是填空题
                     if (form.elements[i].id === 'myInput') {
-                        output += text +`：${form.elements[i].value}\n`;
+                        output += text + `：${form.elements[i].value}\n`;
                     }
-                }else if (form.elements[i].type === 'select-one' ) {
+                } else if (form.elements[i].type === 'select-one') {
 
-                output +=text+ `：${document.getElementById(form.elements[i].id).value}\n`;
-                    
+                    output += text + `：${document.getElementById(form.elements[i].id).value}\n`;
+
+                } else if (form.elements[i].type === 'date') {
+
+                    output += text + `：${document.getElementById(form.elements[i].id).value}\n`;
+
                 }
             }
             console.log(output)
@@ -171,7 +205,7 @@
                 alert('数据已复制到剪贴板！');
             }).catch(err => {
                 console.error('复制失败:', err);
-    });
-});
+            });
+        });
     </script>
 </body>
