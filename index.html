@@ -3,34 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>测验页面</title>
+    <title>酸再生日常数据收集</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<script>
+    window.onload = function() {
+        var today = new Date();
+
+    if (today.getHours() < 8) {
+        // 如果是，则显示昨天的日期
+        today.setDate(today.getDate() - 1);
+    }
+        var year = today.getFullYear();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2); // 注意月份是从0开始的，所以要+1
+        var day = ('0' + today.getDate()).slice(-2); // 确保日期是两位数
+        var defaultDate = year + '-' + month + '-' + day;
+        document.getElementById('dateInput').value = defaultDate;
+    }
+    </script>
 <style>
     /* 设置id为'myInput'的input元素的宽度为200px */
     #myInput {
         width: 50px; /* 可以根据需要调整这个值 */
         padding: 5px; /* 添加一些内边距，使文本更易读 */
     }
+/* 下拉框样式 */
+.custom-select {
+
+    margin-top: 10px; /* 上方距离，即与上方标签的间隔 */
+    margin-bottom: 10px;
+}
+
+
+
+
+
 </style>
 <body class="p-4">
-    <h1 class="text-2xl font-bold">测验页面</h1>
+    <h1 class="text-2xl font-bold">酸再生日常数据收集</h1>
     <form id="quizForm">
 
-        <label for="fruits">区域：</label>
-        <select id="quyu" name="区域">
-            <option value="1700酸再生">1700酸再生</option>
-            <option value="2230酸再生">2230酸再生</option>
-            <option value="2230酸再生">2230酸再生</option>
-            <option value="高强酸再生">高强酸再生</option>
-        </select>
+        <label for="fruits">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;区域：</label>
 
-        <label for="fruits">班次：</label>
+            <select class="custom-select" id="quyu" name="区域">
+                <option value="1700酸再生">1700酸再生</option>
+                <option value="2230酸再生">2230酸再生</option>
+                <option value="2230酸再生">2230酸再生</option>
+                <option value="高强酸再生">高强酸再生</option>
+            </select>
+
+            <input type="date" id="dateInput" name="dateInput">
+        <!-- <a href="https://www.example.com">这是一个链接</a> -->
+        <label for="fruits">&nbsp;&nbsp;&nbsp;班次：</label>
         <select id="banci" name="班次">
             <option value="白班">白班</option>
             <option value="夜班">夜班</option>
         </select>
-        
+    
         <div class="mt-1">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 卸碎边：<input type="text" id="myInput" name="卸碎边" class="p-2 border rounded mr-1">车   &nbsp; &nbsp;碎边添加：<input type="text" id="myInput" name="碎边添加" class="p-2 border rounded mr-2">车
         </div>
@@ -38,7 +67,7 @@
             &nbsp; &nbsp;场地能放：<input type="text" id="myInput" name="场地能放" class="p-2 border rounded mr-2">车
         </div>
         <div class="mt-1" >
-            &nbsp;  &nbsp; &nbsp;&nbsp;铁粉装：<input type="text" id="myInput" name="铁粉装" class="p-2 border rounded mr-2">袋
+            &nbsp;  &nbsp; &nbsp;&nbsp;铁粉装：<input type="text" id="myInput" name="铁粉装" class="p-2 border rounded mr-2">袋  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;吸排车：<input type="text" id="myInput" name="吸排车" class="p-2 border rounded mr-2">吨
         </div>
         <div class="mt-1" >
             &nbsp;&nbsp;&nbsp;铁粉外运：<input type="text" id="myInput" name="铁粉外运" class="p-2 border rounded mr-1">袋  &nbsp; &nbsp;外运铁粉：<input type="text" id="myInput" name="外运吨数" class="p-2 border rounded mr-2">吨
@@ -52,7 +81,8 @@
         
 
         <label for="fruits">压滤机状态：</label>
-        <select id="ylj" name="压滤机状态">
+        <select class="custom-select" id="ylj" name="压滤机状态">
+            
             <option value="未启">未启</option>
             <option value="进泥中">进泥中</option>
             <option value="反吹中">反吹中</option>
@@ -100,7 +130,7 @@
             console.log(output)
 
             navigator.clipboard.writeText(output).then(() => {
-                alert('答案已复制到剪贴板！');
+                alert('数据已复制到剪贴板！');
             }).catch(err => {
                 console.error('复制失败:', err);
     });
