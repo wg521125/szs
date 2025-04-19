@@ -23,6 +23,14 @@
         transition: all 0.3s ease;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
+    #copyBtn:hover {
+        background-color: #2563eb; /* 悬停时深蓝色 */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    #copyBtn:active {
+        transform: translateY(0);
+    }
         body {
             background-color: #f0f9ff; /* 更柔和的蓝色背景 */
             /* background-color: #f3f4f6; */
@@ -70,6 +78,19 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+        .center-container {
+    background-color: #f1f5f9;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 20px auto;
+    border: 1px solid #cbd5e1;
+    max-width: 450px;
+    background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+                      linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+        
     </style>
 </head>
 <body class="p-4">
