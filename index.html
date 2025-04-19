@@ -14,18 +14,43 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 300px;
+            width: 400px;
             margin: 0 auto;
         }
-        .btn-copy {
-            background-color: #007BFF;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 20px;
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            margin-right: 10px;
+            white-space: nowrap; /* 防止文字换行 */
+            width: 120px; /* 固定标签宽度 */
+        }
+        .input-group input {
+            width: 100px; /* 调整输入框的宽度 */
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-group span {
+            margin-left: 10px;
+        }
+        .select-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .select-group label {
+            margin-right: 10px;
+            white-space: nowrap; /* 防止文字换行 */
+            width: 120px; /* 固定标签宽度 */
+        }
+        .select-group select {
+            width: 250px; /* 调整选择框的宽度 */
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -38,92 +63,144 @@
                 <input type="date" id="dateInput" name="日期" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
             <div class="mb-4">
-                <label for="quyu" class="block text-gray-700 font-bold mb-2">区域：</label>
-                <select id="quyu" name="区域" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="1700酸再生">1700酸再生</option>
-                    <option value="2230酸再生">2230酸再生</option>
-                    <option value="高强酸再生">高强酸再生</option>
-                </select>
+                <div class="select-group">
+                    <label for="quyu">区域：</label>
+                    <select id="quyu" name="区域" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="1700酸再生">1700酸再生</option>
+                        <option value="2230酸再生">2230酸再生</option>
+                        <option value="高强酸再生">高强酸再生</option>
+                    </select>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="banci" class="block text-gray-700 font-bold mb-2">班次：</label>
-                <select id="banci" name="班次" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="白班">白班</option>
-                    <option value="夜班">夜班</option>
-                </select>
+                <div class="select-group">
+                    <label for="banci">班次：</label>
+                    <select id="banci" name="班次" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="白班">白班</option>
+                        <option value="夜班">夜班</option>
+                    </select>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="卸碎边" class="block text-gray-700 font-bold mb-2">卸碎边：</label>
-                <input type="text" id="卸碎边" name="卸碎边" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 车
+                <div class="select-group">
+                    <label for="ylj">压滤机状态：</label>
+                    <select id="ylj" name="压滤机状态" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="未启">未启</option>
+                        <option value="进泥中">进泥中</option>
+                        <option value="反吹中">反吹中</option>
+                        <option value="待除泥">待除泥</option>
+                    </select>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="碎边添加" class="block text-gray-700 font-bold mb-2">碎边添加：</label>
-                <input type="text" id="碎边添加" name="碎边添加" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 车
+                <div class="input-group">
+                    <label for="卸碎边">卸碎边：</label>
+                    <input type="text" id="卸碎边" name="卸碎边" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>车</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="场地能放" class="block text-gray-700 font-bold mb-2">场地能放：</label>
-                <input type="text" id="场地能放" name="场地能放" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 车
+                <div class="input-group">
+                    <label for="碎边添加">碎边添加：</label>
+                    <input type="text" id="碎边添加" name="碎边添加" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>车</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="铁粉装" class="block text-gray-700 font-bold mb-2">铁粉装：</label>
-                <input type="text" id="铁粉装" name="铁粉装" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 袋
+                <div class="input-group">
+                    <label for="场地能放">场地能放：</label>
+                    <input type="text" id="场地能放" name="场地能放" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>车</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="吸排车" class="block text-gray-700 font-bold mb-2">吸排车：</label>
-                <input type="text" id="吸排车" name="吸排车" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+                <div class="input-group">
+                    <label for="铁粉装">铁粉装：</label>
+                    <input type="text" id="铁粉装" name="铁粉装" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>袋</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="铁粉外运" class="block text-gray-700 font-bold mb-2">铁粉外运：</label>
-                <input type="text" id="铁粉外运" name="铁粉外运" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 袋
+                <div class="input-group">
+                    <label for="吸排车">吸排车：</label>
+                    <input type="text" id="吸排车" name="吸排车" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>吨</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="外运吨数" class="block text-gray-700 font-bold mb-2">外运吨数：</label>
-                <input type="text" id="外运吨数" name="外运吨数" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+                <div class="input-group">
+                    <label for="铁粉外运">铁粉外运：</label>
+                    <input type="text" id="铁粉外运" name="铁粉外运" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>袋</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="除泥" class="block text-gray-700 font-bold mb-2">除泥：</label>
-                <input type="text" id="除泥" name="除泥" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 次
+                <div class="input-group">
+                    <label for="外运吨数">外运吨数：</label>
+                    <input type="text" id="外运吨数" name="外运吨数" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>吨</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="外运污泥" class="block text-gray-700 font-bold mb-2">外运污泥：</label>
-                <input type="text" id="外运污泥" name="外运污泥" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+                <div class="input-group">
+                    <label for="除泥">除泥：</label>
+                    <input type="text" id="除泥" name="除泥" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>次</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="新酸消耗" class="block text-gray-700 font-bold mb-2">新酸消耗：</label>
-                <input type="text" id="新酸消耗" name="新酸消耗" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+                <div class="input-group">
+                    <label for="外运污泥">外运污泥：</label>
+                    <input type="text" id="外运污泥" name="外运污泥" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>吨</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="卸新酸" class="block text-gray-700 font-bold mb-2">卸新酸：</label>
-                <input type="text" id="卸新酸" name="卸新酸" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+                <div class="input-group">
+                    <label for="新酸消耗">新酸消耗：</label>
+                    <input type="text" id="新酸消耗" name="新酸消耗" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>吨</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="新酸库存" class="block text-gray-700 font-bold mb-2">新酸库存：</label>
-                <input type="text" id="新酸库存" name="新酸库存" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+                <div class="input-group">
+                    <label for="卸新酸">卸新酸：</label>
+                    <input type="text" id="卸新酸" name="卸新酸" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>吨</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="氨水库存" class="block text-gray-700 font-bold mb-2">氨水库存：</label>
-                <input type="text" id="氨水库存" name="氨水库存" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <div class="input-group">
+                    <label for="新酸库存">新酸库存：</label>
+                    <input type="text" id="新酸库存" name="新酸库存" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>吨</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="氨水消耗" class="block text-gray-700 font-bold mb-2">氨水消耗：</label>
-                <input type="text" id="氨水消耗" name="氨水消耗" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <div class="input-group">
+                    <label for="氨水库存">氨水库存：</label>
+                    <input type="text" id="氨水库存" name="氨水库存" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
             </div>
             <div class="mb-4">
-                <label for="卸氨水" class="block text-gray-700 font-bold mb-2">卸氨水：</label>
-                <input type="text" id="卸氨水" name="卸氨水" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <div class="input-group">
+                    <label for="氨水消耗">氨水消耗：</label>
+                    <input type="text" id="氨水消耗" name="氨水消耗" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
             </div>
             <div class="mb-4">
-                <label for="絮凝剂消耗" class="block text-gray-700 font-bold mb-2">絮凝剂消耗：</label>
-                <input type="text" id="絮凝剂消耗" name="絮凝剂消耗" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 公斤
+                <div class="input-group">
+                    <label for="卸氨水">卸氨水：</label>
+                    <input type="text" id="卸氨水" name="卸氨水" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>吨</span>
+                </div>
             </div>
             <div class="mb-4">
-                <label for="ylj" class="block text-gray-700 font-bold mb-2">压滤机状态：</label>
-                <select id="ylj" name="压滤机状态" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                    <option value="未启">未启</option>
-                    <option value="进泥中">进泥中</option>
-                    <option value="反吹中">反吹中</option>
-                    <option value="待除泥">待除泥</option>
-                </select>
+                <div class="input-group">
+                    <label for="絮凝剂消耗">絮凝剂消耗：</label>
+                    <input type="text" id="絮凝剂消耗" name="絮凝剂消耗" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span>公斤</span>
+                </div>
             </div>
         </form>
     </div>
