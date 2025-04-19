@@ -1,262 +1,169 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>酸再生日常数据收集11.14测试版</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-</head>
-<script>
-    window.onload = function () {
-        var banciSelect = document.getElementById('banci');
-        var today = new Date();
-
-
-        if (today.getHours() < 8) {
-            // 如果是，则显示昨天的日期
-            today.setDate(today.getDate() - 1);
-            banciSelect.value = '夜班';
-        } else if (today.getHours() >= 20) {
-            banciSelect.value = '夜班';
-        } else {
-            banciSelect.value = '白班';
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6;
         }
-        var year = today.getFullYear();
-        var month = ('0' + (today.getMonth() + 1)).slice(-2); // 注意月份是从0开始的，所以要+1
-        var day = ('0' + today.getDate()).slice(-2); // 确保日期是两位数
-        var defaultDate = year + '-' + month + '-' + day;
-        document.getElementById('dateInput').value = defaultDate;
-
-
-    }
-</script>
-<style>
-    /* 设置id为'myInput'的input元素的宽度为200px */
-    #myInput {
-        width: 50px;
-        /* 可以根据需要调整这个值 */
-        padding: 5px;
-        /* 添加一些内边距，使文本更易读 */
-    }
-
-    /* 下拉框样式 */
-    .custom-select {
-
-        margin-top: 10px;
-        /* 上方距离，即与上方标签的间隔 */
-        margin-bottom: 10px;
-    }
-
-    .date-container {
-        text-align: center;
-        /* 使容器内的内容居中 */
-        margin-top: 20px;
-        /* 可选：添加顶部外边距 */
-        margin-bottom: 20px;
-        /* 可选：添加底部外边距 */
-    }
-
-    .date-label {
-        display: inline-block;
-        /* 使文本和日期框在同一行 */
-        margin-right: 10px;
-        /* 可选：添加文本和日期框之间的间距 */
-    }
-
-    #dateInput {
-        display: inline-block;
-        /* 确保日期框在同一行 */
-        vertical-align: middle;
-        /* 垂直居中对齐 */
-    }
-
-    .title-center {
-        text-align: center;
-        /* 使标题居中 */
-    }
-
-    .btn-container {
-        text-align: center;
-        /* 文本居中，用于内联元素或行内块元素 */
-        margin-top: 20px;
-        /* 可选：添加一些上边距 */
-    }
-
-
-    /* 假设按钮的样式如下 */
-    .btn-copy {
-        display: block;
-        /* 使按钮成为块级元素 */
-        width: auto;
-        /* 设置按钮宽度，这里仅为示例 */
-        margin: 20px auto;
-        /* 上下外边距和左右自动外边距实现居中 */
-        padding: 10px;
-        /* 按钮内边距 */
-        background-color: #007BFF;
-        /* 蓝色背景 */
-        color: #fff;
-        /* 白色文本 */
-        border-radius: 5px;
-        /* 圆角 */
-        cursor: pointer;
-        /* 鼠标悬停时显示小手 */
-        /* ... 其他样式保持不变 ... */
-    }
-
-    .center-container {
-        display: flex;
-        justify-content: center;
-        /* 水平居中 */
-        /* align-items: center; 垂直居中（如果需要的话） */
-        /* 如果你希望容器有一个固定的高度，并垂直居中内容，可以取消注释以下行 */
-        /* height: 100vh; */
-        /* 其他的样式，如padding、border等，可以根据需要添加 */
-    }
-</style>
-
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        .btn-copy {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
 <body class="p-4">
-    <h1 class="text-2xl font-bold title-center">酸再生日常数据收集</h1>
+    <h1 class="text-3xl font-bold text-center mb-4">酸再生日常数据收集</h1>
     <div class="center-container">
-
-
-
-        <form id="quizForm">
-            <div class="date-container">
-                <span class="date-label">选择日期：</span>
-                <input type="date" id="dateInput" name="日期">
+        <form id="quizForm" class="form-container">
+            <div class="mb-4">
+                <label for="dateInput" class="block text-gray-700 font-bold mb-2">选择日期：</label>
+                <input type="date" id="dateInput" name="日期" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             </div>
-            <label for="fruits">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;区域：</label>
-
-            <select class="custom-select" id="quyu" name="区域">
-                <option value="1700酸再生">1700酸再生</option>
-                <option value="2230酸再生">2230酸再生</option>
-                <option value="2230酸再生">2230酸再生</option>
-                <option value="高强酸再生">高强酸再生</option>
-            </select>
-
-
-
-            <label for="fruits">&nbsp;&nbsp;&nbsp;班次：</label>
-            <select id="banci" name="班次">
-                <option value="白班">白班</option>
-                <option value="夜班">夜班</option>
-            </select>
-
-            <div class="mt-1">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 卸碎边：<input type="text" id="myInput" name="卸碎边"
-                    class="p-2 border rounded mr-1">车 &nbsp; &nbsp;碎边添加：<input type="text" id="myInput" name="碎边添加"
-                    class="p-2 border rounded mr-2">车
+            <div class="mb-4">
+                <label for="quyu" class="block text-gray-700 font-bold mb-2">区域：</label>
+                <select id="quyu" name="区域" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="1700酸再生">1700酸再生</option>
+                    <option value="2230酸再生">2230酸再生</option>
+                    <option value="高强酸再生">高强酸再生</option>
+                </select>
             </div>
-            <div class="mt-1">
-                &nbsp; &nbsp;场地能放：<input type="text" id="myInput" name="场地能放" class="p-2 border rounded mr-2">车
+            <div class="mb-4">
+                <label for="banci" class="block text-gray-700 font-bold mb-2">班次：</label>
+                <select id="banci" name="班次" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="白班">白班</option>
+                    <option value="夜班">夜班</option>
+                </select>
             </div>
-            <div class="mt-1">
-                &nbsp; &nbsp; &nbsp;&nbsp;铁粉装：<input type="text" id="myInput" name="铁粉装"
-                    class="p-2 border rounded mr-2">袋
-                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;吸排车：<input type="text" id="myInput" name="吸排车"
-                    class="p-2 border rounded mr-2">吨
+            <div class="mb-4">
+                <label for="卸碎边" class="block text-gray-700 font-bold mb-2">卸碎边：</label>
+                <input type="text" id="卸碎边" name="卸碎边" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 车
             </div>
-            <div class="mt-1">
-                &nbsp;&nbsp;&nbsp;铁粉外运：<input type="text" id="myInput" name="铁粉外运" class="p-2 border rounded mr-1">袋
-                &nbsp;
-                &nbsp;外运铁粉：<input type="text" id="myInput" name="外运吨数" class="p-2 border rounded mr-2">吨
+            <div class="mb-4">
+                <label for="碎边添加" class="block text-gray-700 font-bold mb-2">碎边添加：</label>
+                <input type="text" id="碎边添加" name="碎边添加" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 车
             </div>
-            <div class="mt-1">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 除泥：<input type="text" id="myInput" name="除泥"
-                    class="p-2 border rounded mr-1">次 &nbsp; &nbsp;外运污泥：<input type="text" id="myInput" name="外运污泥"
-                    class="p-2 border rounded mr-2">吨
+            <div class="mb-4">
+                <label for="场地能放" class="block text-gray-700 font-bold mb-2">场地能放：</label>
+                <input type="text" id="场地能放" name="场地能放" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 车
             </div>
-            <div class="mt-1">
-                &nbsp;&nbsp; 新酸消耗：<input type="text" id="myInput" name="新酸消耗"
-                    class="p-2 border rounded mr-1">吨 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;卸新酸：<input type="text" id="myInput" name="卸新酸"
-                    class="p-2 border rounded mr-2">吨
+            <div class="mb-4">
+                <label for="铁粉装" class="block text-gray-700 font-bold mb-2">铁粉装：</label>
+                <input type="text" id="铁粉装" name="铁粉装" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 袋
             </div>
-            <div class="mt-1">
-                &nbsp;&nbsp; 新酸库存：<input type="text" id="myInput" name="新酸库存"
-                    class="p-2 border rounded mr-1">吨   &nbsp;&nbsp;氨水库存：<input type="text" id="myInput" name="氨水库存"
-                    class="p-2 border rounded mr-2">
+            <div class="mb-4">
+                <label for="吸排车" class="block text-gray-700 font-bold mb-2">吸排车：</label>
+                <input type="text" id="吸排车" name="吸排车" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
             </div>
-            <div class="mt-1">
-                &nbsp;&nbsp; 氨水消耗：<input type="text" id="myInput" name="氨水消耗"
-                    class="p-2 border rounded mr-1">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;卸氨水：<input type="text" id="myInput" name="卸氨水"
-                    class="p-2 border rounded mr-2">
+            <div class="mb-4">
+                <label for="铁粉外运" class="block text-gray-700 font-bold mb-2">铁粉外运：</label>
+                <input type="text" id="铁粉外运" name="铁粉外运" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 袋
             </div>
-
-            <div class="mt-1">
-                絮凝剂消耗：<input type="text" id="myInput" name="絮凝剂消耗" class="p-2 border rounded mr-1">公斤
+            <div class="mb-4">
+                <label for="外运吨数" class="block text-gray-700 font-bold mb-2">外运吨数：</label>
+                <input type="text" id="外运吨数" name="外运吨数" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
             </div>
-
-
-            <label for="fruits">压滤机状态：</label>
-            <select class="custom-select" id="ylj" name="压滤机状态">
-
-                <option value="未启">未启</option>
-                <option value="进泥中">进泥中</option>
-                <option value="反吹中">反吹中</option>
-                <option value="待除泥">待除泥</option>
-            </select>
-
-
-
-
+            <div class="mb-4">
+                <label for="除泥" class="block text-gray-700 font-bold mb-2">除泥：</label>
+                <input type="text" id="除泥" name="除泥" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 次
+            </div>
+            <div class="mb-4">
+                <label for="外运污泥" class="block text-gray-700 font-bold mb-2">外运污泥：</label>
+                <input type="text" id="外运污泥" name="外运污泥" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+            </div>
+            <div class="mb-4">
+                <label for="新酸消耗" class="block text-gray-700 font-bold mb-2">新酸消耗：</label>
+                <input type="text" id="新酸消耗" name="新酸消耗" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+            </div>
+            <div class="mb-4">
+                <label for="卸新酸" class="block text-gray-700 font-bold mb-2">卸新酸：</label>
+                <input type="text" id="卸新酸" name="卸新酸" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+            </div>
+            <div class="mb-4">
+                <label for="新酸库存" class="block text-gray-700 font-bold mb-2">新酸库存：</label>
+                <input type="text" id="新酸库存" name="新酸库存" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 吨
+            </div>
+            <div class="mb-4">
+                <label for="氨水库存" class="block text-gray-700 font-bold mb-2">氨水库存：</label>
+                <input type="text" id="氨水库存" name="氨水库存" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="氨水消耗" class="block text-gray-700 font-bold mb-2">氨水消耗：</label>
+                <input type="text" id="氨水消耗" name="氨水消耗" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="卸氨水" class="block text-gray-700 font-bold mb-2">卸氨水：</label>
+                <input type="text" id="卸氨水" name="卸氨水" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-4">
+                <label for="絮凝剂消耗" class="block text-gray-700 font-bold mb-2">絮凝剂消耗：</label>
+                <input type="text" id="絮凝剂消耗" name="絮凝剂消耗" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"> 公斤
+            </div>
+            <div class="mb-4">
+                <label for="ylj" class="block text-gray-700 font-bold mb-2">压滤机状态：</label>
+                <select id="ylj" name="压滤机状态" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="未启">未启</option>
+                    <option value="进泥中">进泥中</option>
+                    <option value="反吹中">反吹中</option>
+                    <option value="待除泥">待除泥</option>
+                </select>
+            </div>
         </form>
-
-
-
-
-
-
-
-
     </div>
     <button id="copyBtn" class="btn-copy">一键生成复制到剪贴板</button>
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var today = new Date();
+            var banciSelect = document.getElementById('banci');
 
-
-        document.getElementById('copyBtn').addEventListener('click', function () {
-            const form = document.getElementById('quizForm');
-            let output = '';
-            for (let i = 0; i < form.elements.length; i++) {
-                var text = form.elements[i].name
-                var int = (5 - text.length) * 3
-                // if(int>0){
-                //     int=int+(4-text.length)*2
-                // }
-                // int=0;
-
-                for (let index = 0; index < int; index++) {
-                    text = ' ' + text
-                }
-                console.log(text)
-                console.log(text.length)
-                if (form.elements[i].type === 'radio') {
-                    output += text + `：${form.elements[i].value}\n`;
-                } else if (form.elements[i].type === 'text') {
-                    // 假设这里的text输入框是填空题
-                    if (form.elements[i].id === 'myInput') {
-                        output += text + `：${form.elements[i].value}\n`;
-                    }
-                } else if (form.elements[i].type === 'select-one') {
-
-                    output += text + `：${document.getElementById(form.elements[i].id).value}\n`;
-
-                } else if (form.elements[i].type === 'date') {
-
-                    output += text + `：${document.getElementById(form.elements[i].id).value}\n`;
-
-                }
+            if (today.getHours() < 8 || today.getHours() >= 20) {
+                banciSelect.value = '夜班';
+            } else {
+                banciSelect.value = '白班';
             }
-            console.log(output)
 
-            navigator.clipboard.writeText(output).then(() => {
-                alert('数据已复制到剪贴板！');
-            }).catch(err => {
-                console.error('复制失败:', err);
+            var year = today.getFullYear();
+            var month = String(today.getMonth() + 1).padStart(2, '0');
+            var day = String(today.getDate()).padStart(2, '0');
+            var defaultDate = `${year}-${month}-${day}`;
+            document.getElementById('dateInput').value = defaultDate;
+
+            document.getElementById('copyBtn').addEventListener('click', function () {
+                const form = document.getElementById('quizForm');
+                let output = '';
+                for (let i = 0; i < form.elements.length; i++) {
+                    const element = form.elements[i];
+                    if (element.type === 'radio' && element.checked) {
+                        output += `${element.name}：${element.value}\n`;
+                    } else if (element.type === 'text' || element.type === 'date' || element.type === 'select-one') {
+                        output += `${element.name}：${element.value}\n`;
+                    }
+                }
+
+                navigator.clipboard.writeText(output).then(() => {
+                    alert('数据已复制到剪贴板！');
+                }).catch(err => {
+                    console.error('复制失败:', err);
+                });
             });
         });
     </script>
 </body>
+</html>
