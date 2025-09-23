@@ -327,9 +327,13 @@
                         output += `${element.name}：${element.value}\n`;
                     } else if (element.type === 'text' || element.type === 'date' || element.type === 'select-one') {
                         const value = element.value || '0';
-                        output += `${element.name}：${value}\n`;
+                        // 获取对应的单位
+                        const unitElement = element.parentNode.querySelector('.unit');
+                        const unit = unitElement ? unitElement.textContent : '';
+                        output += `${element.name}：${value}${unit}\n`;
                     }
                 }
+                console.log(output);
 
                 navigator.clipboard.writeText(output).then(() => {
                     alert('数据已复制到剪贴板！');
