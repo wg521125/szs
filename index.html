@@ -40,8 +40,10 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             margin: 0 auto;
+            box-sizing: border-box;
         }
         .input-group {
             display: flex;
@@ -54,7 +56,8 @@
             width: 120px; /* 固定标签宽度 */
         }
         .input-group input {
-            width: 100px; /* 调整输入框的宽度 */
+            flex: 1;
+            min-width: 0;
             padding: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -73,7 +76,8 @@
             width: 120px; /* 固定标签宽度 */
         }
         .select-group select {
-            width: 250px; /* 调整选择框的宽度 */
+            flex: 1;
+            min-width: 0;
             padding: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -81,16 +85,49 @@
         .center-container {
     background-color: #f1f5f9;
     border-radius: 8px;
-    padding: 25px;
+    padding: 15px;
     margin: 20px auto;
     border: 1px solid #cbd5e1;
-    max-width: 450px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
     background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
                       linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
     background-size: 20px 20px;
 }
 
-        
+        @media (max-width: 480px) {
+            .form-container {
+                padding: 15px;
+            }
+            .input-group label,
+            .select-group label {
+                width: 80px;
+                font-size: 14px;
+            }
+            .input-group input,
+            .select-group select {
+                padding: 4px;
+                font-size: 14px;
+            }
+            .center-container {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .input-group label,
+            .select-group label {
+                width: 70px;
+                font-size: 13px;
+            }
+            .input-group input,
+            .select-group select {
+                padding: 3px;
+                font-size: 13px;
+            }
+        }
+
     </style>
 </head>
 <body class="p-4">
