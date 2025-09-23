@@ -151,6 +151,7 @@
                     <select id="quyu" name="区域" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" style="flex: 1; min-width: 0;">
                         <option value="1700酸再生">1700酸再生</option>
                         <option value="2230酸再生">2230酸再生</option>
+                        <option value="1420酸再生">1420酸再生</option>
                         <option value="高强酸再生">高强酸再生</option>
                     </select>
                     <span class="unit"></span>
@@ -203,6 +204,13 @@
                 <div class="input-group">
                     <label for="铁粉装">铁粉装：</label>
                     <input type="text" id="铁粉装" name="铁粉装" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <span class="unit">袋</span>
+                </div>
+            </div>
+            <div class="mb-4">
+                <div class="input-group">
+                    <label for="铁粉装">铁粉库存：</label>
+                    <input type="text" id="铁粉库存：" name="铁粉库存：" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <span class="unit">袋</span>
                 </div>
             </div>
@@ -318,7 +326,8 @@
                     if (element.type === 'radio' && element.checked) {
                         output += `${element.name}：${element.value}\n`;
                     } else if (element.type === 'text' || element.type === 'date' || element.type === 'select-one') {
-                        output += `${element.name}：${element.value}\n`;
+                        const value = element.value || '0';
+                        output += `${element.name}：${value}\n`;
                     }
                 }
 
